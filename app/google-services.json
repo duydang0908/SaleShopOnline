@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "915099497919",
+    "firebase_url": "https://onlinesaleapp-7d3a9.firebaseio.com",
+    "project_id": "onlinesaleapp-7d3a9",
+    "storage_bucket": "onlinesaleapp-7d3a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915099497919:android:2421655733f6e06e",
+        "android_client_info": {
+          "package_name": "com.example.duyda.onlinesaleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915099497919-l1hlraova8f2lqfulk0p0a2kcssn0vcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.duyda.onlinesaleapp",
+            "certificate_hash": "de614ca5961d468fb909c34e23f07bc84f061c26"
+          }
+        },
+        {
+          "client_id": "915099497919-vqj6e1djs2c3i73kv5v1rhcl7u9t668g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHgSVSrSXlWXWKGgUdHu2UCb6Qaavwj-I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915099497919-vqj6e1djs2c3i73kv5v1rhcl7u9t668g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
