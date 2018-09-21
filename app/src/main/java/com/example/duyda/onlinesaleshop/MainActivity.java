@@ -1,4 +1,4 @@
-package com.example.duyda.onlinesaleapp;
+package com.example.duyda.onlinesaleshop;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSignIn, btnSignUp;
+    Button btnSignUp, btnSignIn;
     TextView txtSlogan;
 
     @Override
@@ -18,17 +18,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSignIn=(Button)findViewById(R.id.btnSignIn);
-        btnSignUp=(Button)findViewById(R.id.btnSignUp);
 
-        txtSlogan=(TextView)findViewById(R.id.txtSlogan);
-        Typeface face=Typeface.createFromAsset(getAssets(),"fonts/NABILA.TTF");
+        btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        btnSignIn = (Button) findViewById(R.id.btnSignIn);
+
+        txtSlogan = (TextView) findViewById(R.id.txtSlogan);
+
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/NABILA.TTF");
         txtSlogan.setTypeface(face);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,SignIn.class);
+                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
         });
@@ -36,8 +38,11 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(intent);
             }
         });
+
 
     }
 }

@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:915099497919:android:2421655733f6e06e",
+        "mobilesdk_app_id": "1:915099497919:android:2ef34816efab981b",
         "android_client_info": {
-          "package_name": "com.example.duyda.onlinesaleapp"
+          "package_name": "com.example.duyda.onlinesaleshop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "915099497919-l1hlraova8f2lqfulk0p0a2kcssn0vcq.apps.googleusercontent.com",
+          "client_id": "915099497919-dl6lipfnvmo8bollnic7h6qivef91g2d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.duyda.onlinesaleapp",
+            "package_name": "com.example.duyda.onlinesaleshop",
             "certificate_hash": "de614ca5961d468fb909c34e23f07bc84f061c26"
           }
         },

@@ -1,4 +1,4 @@
-package com.example.duyda.onlinesaleapp;
+package com.example.duyda.onlinesaleshop;
 
 import org.junit.Test;
 

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.duyda.onlinesaleapp">
+    package="com.example.duyda.onlinesaleshop">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignIn"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity" />
     </application>
 
 </manifest>
