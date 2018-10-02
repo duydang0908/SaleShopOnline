@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroud"
+    android:background="@drawable/background"
     tools:context=".SignUpActivity">
 
     <LinearLayout
@@ -16,11 +16,12 @@
         android:orientation="vertical">
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtName"
+            android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textPersonName"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="34sp"
             app:met_baseColor="@android:color/white"
@@ -30,11 +31,12 @@
             app:met_singleLineEllipsis="true" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtPhone"
+            android:id="@+id/edtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            android:inputType="phone"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="34sp"
             app:met_baseColor="@android:color/white"
@@ -49,28 +51,29 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
+            android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="34sp"
             app:met_baseColor="@android:color/white"
             app:met_floatingLabel="highlight"
-            app:met_maxCharacters="11"
+            app:met_maxCharacters="16"
             app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="true" />
-
-        <info.hoang8f.widget.FButton
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="Sign Up"
-            android:textColor="@android:color/white"
-            app:buttonColor="@color/btnSignIn"
-            app:shadowColor="@android:color/black" />
-
-
     </LinearLayout>
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        app:buttonColor="@color/btnSignIn"
+        app:shadowColor="@android:color/black"
+        app:shadowHeight="5dp" />
 
 
 </RelativeLayout>

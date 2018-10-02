@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSignUp, btnSignIn;
+    Button btnSignIn,btnSignUp;
     TextView txtSlogan;
 
     @Override
@@ -18,31 +18,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnSignIn=findViewById(R.id.btnSignIn);
+        btnSignUp=findViewById(R.id.btnSignUp);
 
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
-        btnSignIn = (Button) findViewById(R.id.btnSignIn);
+        txtSlogan=findViewById(R.id.txtSlogan);
 
-        txtSlogan = (TextView) findViewById(R.id.txtSlogan);
-
-        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/NABILA.TTF");
-        txtSlogan.setTypeface(face);
+        Typeface typeface=Typeface.createFromAsset(getAssets(),"fonts/NABILA.TTF");
+        txtSlogan.setTypeface(typeface);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
         });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
         });
-
 
     }
 }

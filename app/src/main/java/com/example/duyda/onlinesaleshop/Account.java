@@ -1,15 +1,15 @@
-package com.example.duyda.onlinesaleshop.Model;
+package com.example.duyda.onlinesaleshop;
 
-public class Account  {
+public class Account {
     private String Name;
     private String Pass;
+
+    public Account() {
+    }
 
     public Account(String name, String pass) {
         Name = name;
         Pass = pass;
-    }
-
-    public Account() {
     }
 
     public String getName() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroud"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -35,13 +35,6 @@
         android:orientation="horizontal"
         android:weightSum="2">
 
-        <!--Test button-->
-        <!--<Button-->
-        <!--android:id="@+id/btnSignUp"-->
-        <!--android:text="Sign Up"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
-
         <info.hoang8f.widget.FButton
             android:id="@+id/btnSignIn"
             android:layout_width="0dp"
@@ -52,7 +45,7 @@
             android:textColor="@android:color/white"
             app:buttonColor="@color/btnSignIn"
             app:shadowColor="@android:color/black"
-            />
+            app:shadowHeight="5dp" />
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btnSignUp"
@@ -64,15 +57,9 @@
             android:textColor="@android:color/white"
             app:buttonColor="@color/btnSignUp"
             app:shadowColor="@android:color/black"
-            />
+            app:shadowHeight="5dp" />
 
-
-        <!--Error button-->
-        <!--app:shadowEnabled="true"-->
-        <!--app:shadowHeight="5dp"-->
-        <!--app:cornerRadius="4dp"-->
 
     </LinearLayout>
-
 
 </RelativeLayout>
