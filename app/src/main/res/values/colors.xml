@@ -8,5 +8,8 @@
     <color name="btnSignUp">#39796b</color>
     <color name="btnSignIn">#488f15</color>
 
+    <color name="overlayBackground">#61595b</color>
+    <color name="overlayActionBar">#131010</color>
+
 
 </resources>

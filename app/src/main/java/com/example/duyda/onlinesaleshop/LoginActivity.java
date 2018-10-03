@@ -1,14 +1,16 @@
 package com.example.duyda.onlinesaleshop;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.duyda.onlinesaleshop.Common.Common;
+import com.example.duyda.onlinesaleshop.Models.Account;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        edtPhone = (MaterialEditText) findViewById(R.id.edtPhoneNumber);
-        edtPassword = (MaterialEditText) findViewById(R.id.edtPassword);
+        edtPhone = findViewById(R.id.edtPhoneNumber);
+        edtPassword =  findViewById(R.id.edtPassword);
 
         btnSignIn = findViewById(R.id.btnSignIn);
 
@@ -46,15 +48,18 @@ public class LoginActivity extends AppCompatActivity {
                 table_account.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if (edtPhone.getText().toString().isEmpty() || edtPassword.getText().toString().isEmpty()) {
-//                            mDialog.dismiss();
-//                            Toast.makeText(LoginActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-//                        } else {
+                        if (edtPhone.getText().toString().isEmpty() || edtPassword.getText().toString().isEmpty()) {
+                            mDialog.dismiss();
+                            Toast.makeText(LoginActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                        } else {
                             if (dataSnapshot.child(edtPhone.getText().toString()).exists()) {
                                 mDialog.dismiss();
                                 Account account = dataSnapshot.child(edtPhone.getText().toString()).getValue(Account.class);
                                 if (edtPassword.getText().toString().equals(account.getPass())) {
-                                    Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                                    Intent homeIntent=new Intent(LoginActivity.this,Home.class);
+                                    Common.currentAccount=account;
+                                    startActivity(homeIntent);
+                                    finish();
                                 } else {
                                     Toast.makeText(LoginActivity.this, "Lỗi đăng nhập!", Toast.LENGTH_SHORT).show();
                                 }
@@ -64,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
                         }
-//                    }
+                    }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {

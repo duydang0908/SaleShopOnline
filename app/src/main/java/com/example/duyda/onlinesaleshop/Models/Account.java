@@ -1,4 +1,4 @@
-package com.example.duyda.onlinesaleshop;
+package com.example.duyda.onlinesaleshop.Models;
 
 public class Account {
     private String Name;
