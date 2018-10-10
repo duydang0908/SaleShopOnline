@@ -18,16 +18,15 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
+    }
+
+    public ProductViewHolder(@NonNull View itemView) {
+        super(itemView);
 
         product_name = itemView.findViewById(R.id.product_name);
         product_image = itemView.findViewById(R.id.product_image);
 
         itemView.setOnClickListener(this);
-
-    }
-
-    public ProductViewHolder(@NonNull View itemView) {
-        super(itemView);
     }
 
     @Override

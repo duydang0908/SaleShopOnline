@@ -2,14 +2,15 @@ package com.example.duyda.onlinesaleshop;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -17,10 +18,12 @@ import android.widget.Toast;
 import com.example.duyda.onlinesaleshop.Interface.ItemClickListener;
 import com.example.duyda.onlinesaleshop.Models.Category;
 import com.example.duyda.onlinesaleshop.Models.Product;
-import com.example.duyda.onlinesaleshop.ViewHolder.MenuViewHolder;
 import com.example.duyda.onlinesaleshop.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -34,7 +37,6 @@ public class ProductList extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference productList;
 
-    String categoryId = "";
 
     FirebaseRecyclerAdapter adapter;
 
@@ -51,11 +53,13 @@ public class ProductList extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        String categoryId = "";
         if (getIntent() != null)
             categoryId = getIntent().getStringExtra("CategoryId");
         if (!categoryId.isEmpty() && categoryId != null) {
             loadProductList(categoryId);
         }
+//        loadProductList();
 
     }
 
@@ -75,21 +79,23 @@ public class ProductList extends AppCompatActivity {
 
         Query query = FirebaseDatabase
                 .getInstance()
-                .getReference()
-                .child("Products")
-                .orderByChild("MenuID")
+                .getReference("Product")
+                .orderByChild("MenuId")
                 .equalTo(categoryId);
+
+        Log.d("TAGZUY", "" + query.toString());
+        Log.d("TAGZUY1", "" + categoryId.toString());
 
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
                         .setQuery(query, Product.class)
                         .build();
+
         adapter = new FirebaseRecyclerAdapter<Product, ProductViewHolder>(options) {
             @Override
-            @NonNull
             public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.menu_item, parent, false);
+                        .inflate(R.layout.product_item, parent, false);
 
                 return new ProductViewHolder(view);
             }
@@ -99,6 +105,7 @@ public class ProductList extends AppCompatActivity {
                 holder.product_name.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(holder.product_image);
+
                 final Product clickItem = model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -112,5 +119,4 @@ public class ProductList extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
     }
-
 }

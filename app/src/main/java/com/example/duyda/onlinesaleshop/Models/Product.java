@@ -1,18 +1,15 @@
 package com.example.duyda.onlinesaleshop.Models;
 
 public class Product {
-    private String Name, Image, Description, Price, Discount, MenuID;
+    private String Name, Image, Description, Price, Discount, MenuId;
 
-    public Product() {
-    }
-
-    public Product(String name, String image, String description, String price, String discount, String menuID) {
+    public Product(String name, String image, String description, String price, String discount, String menuId) {
         Name = name;
         Image = image;
         Description = description;
         Price = price;
         Discount = discount;
-        MenuID = menuID;
+        MenuId = menuId;
     }
 
     public String getName() {
@@ -55,11 +52,14 @@ public class Product {
         Discount = discount;
     }
 
-    public String getMenuID() {
-        return MenuID;
+    public String getMenuId() {
+        return MenuId;
     }
 
-    public void setMenuID(String menuID) {
-        MenuID = menuID;
+    public void setMenuId(String menuId) {
+        MenuId = menuId;
+    }
+
+    public Product() {
     }
 }
