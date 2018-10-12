@@ -83,8 +83,6 @@ public class ProductList extends AppCompatActivity {
                 .orderByChild("MenuId")
                 .equalTo(categoryId);
 
-        Log.d("TAGZUY", "" + query.toString());
-        Log.d("TAGZUY1", "" + categoryId.toString());
 
         FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
