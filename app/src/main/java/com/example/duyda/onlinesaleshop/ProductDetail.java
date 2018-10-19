@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.duyda.onlinesaleshop.Database.Database;
 import com.example.duyda.onlinesaleshop.Interface.ItemClickListener;
+import com.example.duyda.onlinesaleshop.Models.Order;
 import com.example.duyda.onlinesaleshop.Models.Product;
 import com.example.duyda.onlinesaleshop.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -43,6 +46,8 @@ public class ProductDetail extends AppCompatActivity {
 
     FirebaseRecyclerAdapter adapter;
 
+    Product currentProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +58,20 @@ public class ProductDetail extends AppCompatActivity {
 
         btnNumber = findViewById(R.id.number_button);
         btnCart = findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Database(getBaseContext()).addToCart(new Order(
+                        productId,
+                        currentProduct.getName(),
+                        btnNumber.getNumber(),
+                        currentProduct.getPrice(),
+                        currentProduct.getDiscount()
+                ));
+                Toast.makeText(ProductDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         product_description = findViewById(R.id.product_description);
         product_name = findViewById(R.id.product_name);
@@ -74,17 +93,16 @@ public class ProductDetail extends AppCompatActivity {
 
 
     private void loadProductDetail(final String productId) {
-        Log.d("ZUYD",""+productId.toString());
         product.child(productId).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Product product = dataSnapshot.getValue(Product.class);
-                Picasso.with(getBaseContext()).load(product.getImage()).into(product_image);
-                collapsingToolbarLayout.setTitle(product.getName());
-                product_price.setText(product.getPrice());
-                product_name.setText(product.getName());
-                product_description.setText(product.getDescription());
+                currentProduct = dataSnapshot.getValue(Product.class);
+                Picasso.with(getBaseContext()).load(currentProduct.getImage()).into(product_image);
+                collapsingToolbarLayout.setTitle(currentProduct.getName());
+                product_price.setText(currentProduct.getPrice());
+                product_name.setText(currentProduct.getName());
+                product_description.setText(currentProduct.getDescription());
             }
 
             @Override

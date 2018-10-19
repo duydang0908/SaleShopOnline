@@ -3,6 +3,7 @@ package com.example.duyda.onlinesaleshop.Models;
 public class Account {
     private String Name;
     private String Pass;
+    private String Phone;
 
     public Account() {
     }
@@ -10,6 +11,14 @@ public class Account {
     public Account(String name, String pass) {
         Name = name;
         Pass = pass;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getName() {
