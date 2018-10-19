@@ -48,8 +48,8 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
 
 public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
-    private List<Order> listData;
-    //    private List<Order> listData = new ArrayList<>();
+    //    private List<Order> listData;
+    private List<Order> listData = new ArrayList<>();
     private Context context;
 
     public CartAdapter(List<Order> listData, Context context) {
@@ -67,10 +67,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        TextDrawable drawable = TextDrawable.builder().buildRound("" + listData.get(position).getQuantity(), Color.RED);
+        TextDrawable drawable = TextDrawable.builder().buildRound("" + listData.get(position).getQuantity(), Color.BLACK);
         holder.img_cart_count.setImageDrawable(drawable);
 
-        Locale locale = new Locale("en", "US");
+        Locale locale = new Locale("vn", "VN");
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
         int price = (Integer.parseInt(listData.get(position).getPrice())) * (Integer.parseInt(listData.get(position).getQuantity()));
 
@@ -80,6 +80,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listData.size();
     }
 }
